@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('code from scm') {
             steps {
-                git 'https://github.com/poorna162/G_cloud4c.git'
+               git 'https://github.com/poorna162/springboot-chat-app.git'
             }
         }
         stage('building the code') {
@@ -16,14 +16,18 @@ pipeline {
                 sh 'mvn test'
             }
         }
-   
+        stage('code quality') {
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+                recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
+            }
+        }
         stage('code quality sonar') {
             steps {
                sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=sonar_project \
-  -Dsonar.projectName='sonar_project' \
-  -Dsonar.host.url=http://182.18.184.72:9000 \
-  -Dsonar.token=sqp_36821827cfbc52164cd2289eb1c441615b84a5d8"
+  -Dsonar.projectKey=gopal-sonar-project \
+  -Dsonar.host.url=http://3.142.94.123:9000 \
+  -Dsonar.login=sqp_b5b3bf9498dcc9302ef980bc4cbdf9b4c03ab75b"
             }
         }
         
