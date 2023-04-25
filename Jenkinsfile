@@ -16,6 +16,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        /n
         /*
         stage('code quality') {
             steps {
@@ -23,7 +24,7 @@ pipeline {
                 recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
             }
         }
-*/
+        */
         stage('code quality sonar') {
             steps {
                sh "mvn clean verify sonar:sonar \
