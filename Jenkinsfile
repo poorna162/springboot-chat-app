@@ -17,13 +17,7 @@ pipeline {
             }
         }
        
-        stage('code quality') {
-            steps {
-                sh 'mvn checkstyle:checkstyle'
-                recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
-            }
-        }
-       
+            
         stage('code quality sonar') {
             steps {
                sh "mvn clean verify sonar:sonar \
