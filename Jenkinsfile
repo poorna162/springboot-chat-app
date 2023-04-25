@@ -25,9 +25,10 @@ pipeline {
         stage('code quality sonar') {
             steps {
                sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=gopal-sonar-project \
-  -Dsonar.host.url=http://3.142.94.123:9000 \
-  -Dsonar.login=sqp_b5b3bf9498dcc9302ef980bc4cbdf9b4c03ab75b"
+  -Dsonar.projectKey=sonar_project \
+  -Dsonar.projectName='sonar_project' \
+  -Dsonar.host.url=http://182.18.184.72:9000 \
+  -Dsonar.token=sqp_36821827cfbc52164cd2289eb1c441615b84a5d8"
             }
         }
         
