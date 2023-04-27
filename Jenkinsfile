@@ -19,10 +19,10 @@ pipeline {
           stage('code quality sonar') {
             steps {
                sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=sonar_project \
-  -Dsonar.projectName='sonar_project' \
+  -Dsonar.projectKey=sonar_a \
+  -Dsonar.projectName='sonar_a' \
   -Dsonar.host.url=http://182.18.184.72:9000 \
-  -Dsonar.token=sqp_113c4b4f7c0a8d2d6231ce9b843022b3b881734b"
+  -Dsonar.token=sqp_03461f808eb945b24195cba17ec01cde820a0de9"
             }
         }
             
