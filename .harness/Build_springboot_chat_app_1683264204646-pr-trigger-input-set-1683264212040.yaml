@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_springboot_chat_app_1683264204646-pr-trigger-input-set
+  identifier: Build_springboot_chat_app_1683264204646prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_springboot_chat_app_1683264204646
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
